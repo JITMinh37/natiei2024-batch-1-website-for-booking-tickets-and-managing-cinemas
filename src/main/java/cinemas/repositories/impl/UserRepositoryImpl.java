@@ -5,9 +5,7 @@ import cinemas.repositories.UserRepository;
 import org.springframework.stereotype.Repository;
 
 public class UserRepositoryImpl extends BaseRepositoryImpl<User, Long> implements UserRepository {
-
-
-    protected UserRepositoryImpl() {
+    public UserRepositoryImpl() {
         super(User.class);
     }
 }

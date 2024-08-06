@@ -4,6 +4,6 @@
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Define your repository beans -->
-    <bean id="userRepository" class="cinemas.repositories.impl.UserRepositoryImpl" />
+    <bean id="userRepository" class="cinemas.repositories.impl.UserRepositoryImpl"/>
 
 </beans>

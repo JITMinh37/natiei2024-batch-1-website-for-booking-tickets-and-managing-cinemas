@@ -3,7 +3,6 @@ package cinemas.repositories.impl;
 import cinemas.repositories.BaseRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,6 @@ public abstract class BaseRepositoryImpl<T, ID> implements BaseRepository<T, ID>
     }
 
     @Override
-    @Transactional
     public <S extends T> S save(S entity) {
         if (entity == null) {
             throw new IllegalArgumentException("The given entity must not be null!");
@@ -30,7 +28,6 @@ public abstract class BaseRepositoryImpl<T, ID> implements BaseRepository<T, ID>
     }
 
     @Override
-    @Transactional
     public <S extends T> Iterable<S> saveAll(Iterable<S> entities) {
         if (entities == null) {
             throw new IllegalArgumentException("The given entities must not be null!");
@@ -61,7 +58,6 @@ public abstract class BaseRepositoryImpl<T, ID> implements BaseRepository<T, ID>
 
 
     @Override
-    @Transactional
     public void deleteById(ID id) {
         if (id == null) {
             throw new IllegalArgumentException("The given id must not be null!");
@@ -73,7 +69,6 @@ public abstract class BaseRepositoryImpl<T, ID> implements BaseRepository<T, ID>
     }
 
     @Override
-    @Transactional
     public void delete(T entity) {
         if (entity == null) {
             throw new IllegalArgumentException("The given entity must not be null!");
@@ -84,7 +79,6 @@ public abstract class BaseRepositoryImpl<T, ID> implements BaseRepository<T, ID>
 
 
     @Override
-    @Transactional
     public void deleteAll(Iterable<? extends T> entities) {
         if (entities == null) {
             throw new IllegalArgumentException("The given entities must not be null!");
@@ -98,7 +92,6 @@ public abstract class BaseRepositoryImpl<T, ID> implements BaseRepository<T, ID>
     }
 
     @Override
-    @Transactional
     public void deleteAll() {
         String hql = "DELETE FROM " + domainClass.getName();
         entityManager.createQuery(hql).executeUpdate();
